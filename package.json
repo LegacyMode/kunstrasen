@@ -1,0 +1,19 @@
+{
+  "name": "kunstrasen2018",
+  "version": "1.0.0",
+  "description": "This is the website for the kunstrasen 2018 + admin panel",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/stvnkwlzk/kunstrasen2018.git"
+  },
+  "author": "Steven Kowalzik, Felix Wagner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/stvnkwlzk/kunstrasen2018/issues"
+  },
+  "homepage": "https://gitlab.com/stvnkwlzk/kunstrasen2018#README"
+}

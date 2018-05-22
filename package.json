@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://gitlab.com/stvnkwlzk/kunstrasen2018/issues"
   },
-  "homepage": "https://gitlab.com/stvnkwlzk/kunstrasen2018#README"
+  "homepage": "https://gitlab.com/stvnkwlzk/kunstrasen2018#README",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }

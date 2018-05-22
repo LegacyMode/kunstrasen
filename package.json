@@ -4,7 +4,7 @@
   "description": "This is the website for the kunstrasen 2018 + admin panel",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,8 @@
   },
   "homepage": "https://gitlab.com/stvnkwlzk/kunstrasen2018#README",
   "dependencies": {
-    "express": "^4.16.3"
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.4"
   }
 }

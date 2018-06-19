@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Match list</title>
+</head>
+
+<body>
+  <h1>Matches:</h1>
+  <% matches.forEach((match) => { %>
+    <%- include('show', {match: match}); %>
+  <% }); %>
+</body>
+
+</html>

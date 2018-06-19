@@ -1,6 +1,14 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const ObjectId = mongoose.Schema.ObjectId;
+const shortid = require('shortid')
+const Team = require('./team')
 
 const MatchSchema = new mongoose.Schema({
+  _id: {
+    type: String,
+    default: shortid.generate
+  },
   timer: {
     type: Number,
     default: 0
@@ -14,11 +22,13 @@ const MatchSchema = new mongoose.Schema({
     default: false
   },
   team1: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Team',
     require: true
   },
   team2: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Team',
     require: true
   },
   team1Goals: {
@@ -35,11 +45,7 @@ const MatchSchema = new mongoose.Schema({
   },
   roundIdentifier: {
     type: String,
-    default: 'Spiel  Gruppe A'
-  },
-  shortId: {
-    type: String,
-    require: true
+    default: 'unbekannt'
   }
 })
 

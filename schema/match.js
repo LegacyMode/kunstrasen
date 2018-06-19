@@ -28,6 +28,18 @@ const MatchSchema = new mongoose.Schema({
   team2Goals: {
     type: Number,
     default: 0
+  },
+  location: {
+    type: String,
+    default: 'Platz 1'
+  },
+  roundIdentifier: {
+    type: String,
+    default: 'Spiel  Gruppe A'
+  },
+  shortId: {
+    type: String,
+    require: true
   }
 })
 

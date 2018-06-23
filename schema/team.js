@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const ObjectId = mongoose.Schema.ObjectId;
+const Match = require('./match')
 
 const TeamSchema = new mongoose.Schema({
   name : {
@@ -11,7 +14,11 @@ const TeamSchema = new mongoose.Schema({
   goalsAgainst : {
     type: Number,
     default: 0
-  }
+  },
+  matches : [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Match'
+  }],
 })
 
 mongoose.model('Team', TeamSchema)

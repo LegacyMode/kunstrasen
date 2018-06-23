@@ -5,10 +5,10 @@ const shortid = require('shortid')
 const Team = require('./team')
 
 const MatchSchema = new mongoose.Schema({
-  _id: {
-    type: String,
-    default: shortid.generate
-  },
+  // _id: {
+  //   type: String,
+  //   default: shortid.generate
+  // },
   timer: {
     type: Number,
     default: 0

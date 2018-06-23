@@ -1,8 +1,8 @@
 const express = require('express')
 const app = express()
 
-const Match = require('./../schema/match')
 const Team = require('./../schema/team')
+const Match = require('./../schema/match')
 
 app.get('/match', (req, res) => {
   Match.find({}).populate(['team1', 'team2']).exec((err, matches) => {
@@ -18,6 +18,15 @@ app.get('/match/create', (req, res) => {
   })
 })
 
+app.get('/match/:id/edit', async (req, res) => {
+  const teams = await Team.find({}).exec();
+  Match.find({ '_id': req.params.id }).populate(['team1', 'team2']).exec((err, match) => {
+    if (err) return res.status(500).send('Nope')
+    //console.log(teams)
+    return res.render('match/edit', { match: match[0], teams: teams})
+  })
+})
+
 app.get('/match/:id', (req, res) => {
   Match.find({ '_id': req.params.id }).populate(['team1', 'team2']).exec((err, match) => {
     if (err) return res.status(500).send('Nope')
@@ -25,19 +34,29 @@ app.get('/match/:id', (req, res) => {
   })
 })
 
-app.get('/match/edit/:id', (req, res) => {
-  Match.find({ '_id': req.params.id }).populate(['team1', 'team2']).exec((err, match) => {
-    if (err) return res.status(500).send('Nope')
-    return res.render('match/edit', { match:match })
+app.patch('/match/:id', (req, res) => {
+  Match.findById(req.params.id, (err, match) => {
+    if (err) return res.status(500).send('Error Code 2')
+    match.team1 = req.body.team1
+    match.team2 = req.body.team2
+    match.roundIdentifier = req.body.roundIdentifier
+    match.location = req.body.location
+    match.save((err) => {
+      if (err) return res.status(500).send('Error Code 3')
+      //return res.status(200).send(match)
+      res.redirect('/match')
+    })
   })
 })
 
-app.patch('/match/:id', (req, res) => {
-  console.log('test')
+app.delete('/match/:id', (req, res) => {
+  Match.remove({ _id: req.params.id }, (err) => {
+    if (err) return res.status(500).send('Error Code 4')
+    res.redirect('/matches')
+  })
 })
 
 app.post('/match', (req, res) => {
-  console.log(req)
   Match.create({
     team1: req.body.team1,
     team2: req.body.team2,
@@ -46,8 +65,18 @@ app.post('/match', (req, res) => {
   },
   (err, match) => {
     if (err) return res.status(500).send('Das Match konnte nicht gespeichert werden')
-    console.log('Match added...')
-    return res.status(200).send(match)
+    Team.findById(match.team1, (err, team) => {
+      if (err) return res.status(500).send('Das Match konnte nicht gespeichert werden (Code: 2)')
+      team.matches.push(match.id)
+      team.save((err) => { if (err) return res.status(500).send('(Code: 3)') })
+    })
+    Team.findById(match.team2, (err, team) => {
+      if (err) return res.status(500).send('Das Match konnte nicht gespeichert werden (Code: 2)')
+      team.matches.push(match.id)
+      team.save((err) => { if (err) return res.status(500).send('(Code: 3)') })
+    })
+    res.redirect('/match')
+    //return res.status(200).send(match)
   })
 })
 

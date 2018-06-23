@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <title>Team list</title>
-</head>
+<%- include('../partials/header'); %>
 
 <body>
   <h1>Teams:</h1>
   <% teams.forEach(function(team){ %>
     <%- include('show', {team: team}); %>
   <% }); %>
-</body>
-
-</html>
+  
+<%- include('../partials/footer') %>

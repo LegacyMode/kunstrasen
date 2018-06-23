@@ -1,0 +1,14 @@
+<%- include('../partials/header'); %>
+<body>
+  <form method="POST" action="/team/<%- team._id %>" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="_method" value="PATCH">
+    <label for="name">Teamname: </label>
+    <input type="text" id="name" name="name" value="<%- team.name %>">
+    <input type="submit">
+  </form>
+  <form method="POST" action="/team/<%- team._id %>" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete">
+  </form>
+
+<%- include('../partials/footer') %>

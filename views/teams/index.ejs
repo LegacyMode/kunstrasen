@@ -1,9 +1,9 @@
 <%- include('../partials/header'); %>
 
 <body>
-  <h1>Teams:</h1>
+  <h1>Teams: <a href="/team/create"><i>Add</i></a></h1>
   <% teams.forEach(function(team){ %>
     <%- include('show', {team: team}); %>
   <% }); %>
-  
+
 <%- include('../partials/footer') %>

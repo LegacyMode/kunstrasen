@@ -11,13 +11,14 @@ const db = require('./config/db')
 const index = require('./routes/index')
 const teams = require('./routes/team')
 const matches = require('./routes/match')
+const schiri = require('./routes/schiri')
 
 const Team = require('./schema/team')
 const Match = require('./schema/match')
 
 const app = express()
 
-const { PORT = 5000 } = process.env
+const { PORT = 5100 } = process.env
 
 const dev = true
 
@@ -79,6 +80,7 @@ app.get('/logout', (req, res) => {
 })
 
 app.use(index)
+   .use(schiri)
    .use(auth)
    .use(matches)
    .use(teams)

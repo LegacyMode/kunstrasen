@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<body style="width: 600px; margin: 0 auto">
+
+<h1>Match Kontrolle</h1>
+<strong><%- match.team1.name %></strong> vs <strong><%- match.team2.name %></strong>
+<hr />
+<h2 style="display: inline;">Team 1: <%- match.team1Goals %></h2> -
+<h2 style="display: inline">Team 2: <%- match.team2Goals %></h2>
+<hr />
+<div class="">
+  Team1
+  <button> + </button> <button> - </button>
+</div>
+<hr />
+<div class="">
+  Team2
+  <button> + </button> <button> - </button>
+</div>
+<%- include('../partials/footer') %>

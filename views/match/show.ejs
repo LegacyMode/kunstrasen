@@ -1,5 +1,11 @@
-<div>
-  <strong><%- match.roundIdentifier %></strong> > <%- match.team1.name %> vs. <%- match.team2.name %> - <a href="/match/<%- match._id %>/edit">edit</a><br />
-  Platz: <%- match.location %>
-  <hr>
+<div class="match-entry">
+	<hr>
+	<h3 class="blue link"><a href="/match/<%- match._id %>/edit"><%- match.roundIdentifier %></a></h3>
+	<ul class="match-name">
+		<li class="team1"><%- match.team1.name %></li>
+		<li class="vs">vs</li>
+		<li class="team2"><%- match.team2.name %></li>
+	</ul>
+	<hr>
+	Platz: <%- match.location %>
 </div>

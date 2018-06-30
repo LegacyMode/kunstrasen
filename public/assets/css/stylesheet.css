@@ -110,6 +110,37 @@ div.matchlist div.match-entry{
 	margin-top:10px;
 }
 
+div.matchlist div.match-entry ul{
+	list-style: none;
+	padding: 0;
+	width: 100%;
+	display: flex;
+	display: -webkit-flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+div.matchlist div.match-entry ul li{
+	text-align: center;
+	flex: 100 0 auto;
+	margin: 0px;
+}
+
+div.matchlist div.match-entry ul li.team1{
+	width: 40%;
+}
+
+div.matchlist div.match-entry ul li.team2{
+	width: 40%;
+}
+
+div.matchlist div.match-entry ul li.vs{
+	width: 20%;
+}
+
 footer{
 	padding: 20px;
 	text-align: center;
@@ -141,5 +172,11 @@ footer{
 @media only screen and (min-width: 640px){
 	div.wrapper{
 		max-width: 600px;
+	}
+}
+
+@media only screen and (min-width: 1240px){
+	div.wrapper{
+		max-width: 900px;
 	}
 }

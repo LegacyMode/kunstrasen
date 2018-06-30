@@ -1,7 +1,12 @@
 <%- include('../partials/header') %>
 
-<body>
-  <h1>Matches: <a href="/match/create"><i>Add</i></a></h1>
+  <h1>Matches</h1>
+  <hr>
+  <section class="content">
+  <h3 class="link">
+  		<a href="/match/create">Add</a>
+  </h3>
+  <div class="matchlist">
   <% matches.forEach((match) => { %>
     <%- include('show', {match: match}); %>
   <% }); %>

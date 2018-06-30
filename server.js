@@ -34,6 +34,7 @@ app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 app.use(methodOverride(function (req, res) {
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
     const method = req.body._method
@@ -50,7 +51,7 @@ function auth(req, res, next) {
    if (((req.session) && users[req.session.user] && req.session.admin) || dev)
      return next();
    else
-     res.redirect('/login');
+   res.redirect('/login');
  }
 
 app.get('/login', (req, res) => {

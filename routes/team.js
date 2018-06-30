@@ -18,7 +18,6 @@ app.get('/team/create', (req, res) => {
 app.get('/team/:id/edit', async (req, res) => {
   Team.find({ '_id': req.params.id }).exec((err, team) => {
     if (err) return res.status(500).send('Nope')
-    //console.log(teams)
     return res.render('teams/edit', { team: team[0]})
   })
 })
@@ -36,7 +35,6 @@ app.patch('/team/:id', (req, res) => {
     team.name = req.body.name
     team.save((err) => {
       if (err) return res.status(500).send('Error Code 3')
-      //return res.status(200).send(team)
       res.redirect('/team')
     })
   })
@@ -57,7 +55,6 @@ app.post('/team', (req, res) => {
   (err, team) => {
     if (err) return res.status(500).send('Das Team konnte nicht gespeichert werden')
     console.log('Team added...')
-    //return res.status(200).send(team)
     res.redirect('/team')
   })
 })

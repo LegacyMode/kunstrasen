@@ -43,6 +43,10 @@ const MatchSchema = new mongoose.Schema({
     type: String,
     default: 'Platz 1'
   },
+  startingTime: {
+    type: Date,
+    default: Date.now
+  },
   roundIdentifier: {
     type: String,
     default: 'unbekannt'

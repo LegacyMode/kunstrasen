@@ -2,7 +2,6 @@
   <h2><a href="/team/<%- team._id %>"><%- team.name %></a> <a href="/team/<%- team._id %>/edit">edit</a></h2>
   <h3>Matches: </h3>
   <% team.matches.forEach((match) => { %>
-    <% console.log(match) %>
     <strong> <%- match.roundIdentifier %> </strong>
   <% }); %>
   <hr>

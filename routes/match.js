@@ -22,7 +22,6 @@ app.get('/match/:id/edit', async (req, res) => {
   const teams = await Team.find({}).exec();
   Match.find({ '_id': req.params.id }).populate(['team1', 'team2']).exec((err, match) => {
     if (err) return res.status(500).send('Nope')
-    //console.log(teams)
     return res.render('match/edit', { match: match[0], teams: teams})
   })
 })
@@ -43,7 +42,6 @@ app.patch('/match/:id', (req, res) => {
     match.location = req.body.location
     match.save((err) => {
       if (err) return res.status(500).send('Error Code 3')
-      //return res.status(200).send(match)
       res.redirect('/match')
     })
   })
@@ -76,7 +74,6 @@ app.post('/match', (req, res) => {
       team.save((err) => { if (err) return res.status(500).send('(Code: 3)') })
     })
     res.redirect('/match')
-    //return res.status(200).send(match)
   })
 })
 

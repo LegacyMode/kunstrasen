@@ -31,4 +31,19 @@ app.post('/schiri/:id/goals', (req, res) => {
   })
 })
 
+app.post('/schiri/:id/toggle', (req, res) => {
+  Match.findById(req.params.id, (err, match) => {
+    if (err) return res.status(500).send('Error Code 2')
+    if (match.running) {
+      match.running = false
+    } else {
+      match.running = true
+    }
+    match.save((err) => {
+      if (err) return res.status(500).send('Error Code 3')
+      return res.status(200).send(match)
+    })
+  })
+})
+
 module.exports = app

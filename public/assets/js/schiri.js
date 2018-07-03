@@ -2,6 +2,11 @@ console.log('test')
 
 const toggle = document.getElementById('toggle')
 const body = document.querySelector('body')
+const heading = document.getElementById('heading')
+
+const setText = () => {
+  return (heading.dataset.finished == 'true' ? heading.innerHTML = "finished": 0 )
+}
 
 function toggleText() {
   if (toggle.dataset.running == 'true') {
@@ -12,10 +17,46 @@ function toggleText() {
 }
 
 toggleText()
+setText()
+startTime()
+
+function checkTime (i) { return (i < 10 ? "0" + i : i) }
+
+function startTime() {
+    var today = new Date()
+    var h = today.getHours()
+    var m = today.getMinutes()
+    var s = today.getSeconds()
+    m = checkTime(m)
+    s = checkTime(s)
+    document.getElementById('clock').innerHTML =
+    h + ":" + m + ":" + s
+    var t = setTimeout(startTime, 500)
+}
+
+function endGame() {
+  const url = `/schiri/${body.id}/endgame`
+  return fetch(url, {
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    header: {
+      'content-type': 'application/json'
+    },
+    mode: 'cors',
+    method: 'post',
+    referrer: 'no-referrer'
+  })
+  .then(response => response.json())
+  .then((match) => {
+    console.log(match)
+    heading.dataset.finished = match.finished
+    setText()
+  })
+  .catch((err) => console.log(err))
+}
 
 function toggleGame() {
   const url = `/schiri/${body.id}/toggle`
-  console.log('test')
   return fetch(url, {
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, same-origin, *omit

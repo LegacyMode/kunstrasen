@@ -1,7 +1,8 @@
 <div class="match-entry">
 	<hr>
 	<h3 class="blue link"><a href="/match/<%- match._id %>/edit"><%- match.roundIdentifier %></a></h3>
-	<ul class="match-name">
+	<span data-finished="<%- match.finished %>" data-running="<%- match.running %>" class="status"></span>
+		<ul class="match-name">
 		<li class="team1"><%- match.team1.name %></li>
 		<li class="vs">vs</li>
 		<li class="team2"><%- match.team2.name %></li>

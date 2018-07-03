@@ -2,7 +2,8 @@
 
 <body style="width: 600px; margin: 0 auto" id="<%- match._id %>">
 
-<h1>Match Kontrolle</h1>
+<h1 id="heading" data-finished="<%- match.finished %>">Match Kontrolle</h1>
+<h2 id="clock"></h2>
 <strong><%- match.team1.name %></strong> vs <strong><%- match.team2.name %></strong>
 <button id="toggle" onClick="toggleGame()" data-running="<%- match.running %>"></button>
 <hr />

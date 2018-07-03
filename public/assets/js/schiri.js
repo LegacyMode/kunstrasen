@@ -10,9 +10,9 @@ const setText = () => {
 
 function toggleText() {
   if (toggle.dataset.running == 'true') {
-    toggle.innerHTML = 'Pause Game 1'
+    toggle.innerHTML = 'Pause Game'
   } else {
-    toggle.innerHTML = 'Resume Game'
+    toggle.innerHTML = 'Start Game'
   }
 }
 

@@ -5,7 +5,10 @@ const express = require('express')
 const app = express()
 
 app.get('/', (req, res) => {
-  res.render('index')
+    Match.find({}).populate(['team1', 'team2']).sort([['running', '-1']]).exec((err, matches) => {
+    if (err) return res.status(500).send('Error Code 2')
+    return res.render('index', { matches: matches })
+  })
 })
 
 module.exports = app

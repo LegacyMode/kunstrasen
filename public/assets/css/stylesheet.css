@@ -1,7 +1,7 @@
 
 body {
 color: #fff;
-background-color: #333;	
+background-color: #333;
 font-family: 'Roboto', sans-serif;
 }
 
@@ -39,9 +39,9 @@ a{
 }
 
 .link{
--webkit-transition: all 500ms cubic-bezier(0.000, 0.575, 0.265, 1.000); 
--moz-transition: all 500ms cubic-bezier(0.000, 0.575, 0.265, 1.000); 
--o-transition: all 500ms cubic-bezier(0.000, 0.575, 0.265, 1.000); 
+-webkit-transition: all 500ms cubic-bezier(0.000, 0.575, 0.265, 1.000);
+-moz-transition: all 500ms cubic-bezier(0.000, 0.575, 0.265, 1.000);
+-o-transition: all 500ms cubic-bezier(0.000, 0.575, 0.265, 1.000);
 transition: all 500ms cubic-bezier(0.000, 0.575, 0.265, 1.000);
 }
 .link:hover{
@@ -54,6 +54,11 @@ div.wrapper{
 	margin: 0 auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.status {
+	float:right;
+	padding-right: 10px;
 }
 
 section.content{

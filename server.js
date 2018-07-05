@@ -47,16 +47,22 @@ app.use(methodOverride(function (req, res) {
 
 let users = {}
 users[process.env.USER_NAME] = process.env.USER_PW
+users[schiri] = process.env.SCHIRI_PW
 
 function auth(req, res, next) {
    if (((req.session) && users[req.session.user] && req.session.admin) || dev)
      return next();
    else
-   res.redirect('/login');
+     req.session.redirectTo = req.originalUrl
+     res.redirect('/login');
  }
 
 app.get('/login', (req, res) => {
-  res.render('login')
+  let schiri = false;
+  if (req.session.redirectTo.indexOf('schiri/') != -1) {
+    schiri = true;
+  }
+  res.render('login', {schiri: schiri})
 })
 
 app.post('/login', (req, res) => {
@@ -64,12 +70,14 @@ app.post('/login', (req, res) => {
   if (!req.body.username || !req.body.password) {
     res.send('Login Failed')
   }
-  else if ( users[req.body.username] && users[req.body.username] === req.body.password ) {
+  else if (users[req.body.username] && users[req.body.username] === req.body.password ) {
     console.log('login granted')
+    const redirectTo = req.session.redirectTo ? req.session.redirectTo : '/admin'
+    delete req.session.redirectTo
     req.session.user = req.body.username
     req.session.admin = true
     req.session.save()
-    res.redirect('/')
+    res.redirect(redirectTo)
   }
   else {
     console.log('wuuut')

@@ -1,5 +1,6 @@
 <%- include('partials/header'); %>
 <body id="loginpage">
+<<<<<<< HEAD
     <div class="wrapper shadow">
         <h1>Kunstrasen</h1>
         <hr>
@@ -9,8 +10,12 @@
             </h3>
             <form action="/login" method="post">
                 <div class="field">
+                  <% if (schiri) { %>
+                    <input type="hidden" name="username" value="schiri"/>
+                    <% } else {%>
                     <label>Username:</label>
                     <input type="text" name="username"/>
+                    <% } %>
                 </div>
                 <div class="field">
                     <label>Password:</label>
@@ -22,4 +27,5 @@
             </form>
         </section>
 
-<%- include('partials/footer')%>
+
+<%- include('partials/footer') %>

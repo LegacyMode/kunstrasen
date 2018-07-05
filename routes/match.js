@@ -40,6 +40,11 @@ app.patch('/match/:id', (req, res) => {
     match.team2 = req.body.team2
     match.roundIdentifier = req.body.roundIdentifier
     match.location = req.body.location
+    let date = new Date()
+    const time = req.body.startingTime.split(':')
+    date.setHours(time[0], time[1], 0)
+    console.log(date)
+    match.startingTime = date
     match.save((err) => {
       if (err) return res.status(500).send('Error Code 3')
       res.redirect('/match')
@@ -55,11 +60,16 @@ app.delete('/match/:id', (req, res) => {
 })
 
 app.post('/match', (req, res) => {
+  let date = new Date()
+  const time = req.body.startingTime.split(':')
+  date.setHours(time[0], time[1], 0)
+  console.log(date)
   Match.create({
     team1: req.body.team1,
     team2: req.body.team2,
     roundIdentifier: req.body.roundIdentifier,
-    location: req.body.location
+    location: req.body.location,
+    startingTime: date
   },
   (err, match) => {
     if (err) return res.status(500).send('Das Match konnte nicht gespeichert werden')

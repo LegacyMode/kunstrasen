@@ -1,5 +1,6 @@
 <%- include('../partials/header'); %>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.css">
 <body>
   <form action="/match" method="POST">
     <label for="name">Match: </label>
@@ -15,7 +16,12 @@
         <option value="<%- team._id %>"><%- team.name %></option>
       <% }) %>
     </select>
+    <input type="text" id="timepicker" name="startingTime">
     <input type="submit">
   </form>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/timepicker@1.11.12/jquery.timepicker.js"></script>
+  <script src="/assets/js/timeedit.js" type="text/javascript"></script>
 
 <%- include('../partials/footer') %>

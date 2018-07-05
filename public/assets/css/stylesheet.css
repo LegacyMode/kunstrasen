@@ -173,6 +173,27 @@ footer{
 	font-size: 12px;
 }
 
+.kBtn{
+	text-transform: uppercase;
+	padding: 10px;
+	margin: 10px;
+	text-align: center;
+	width: 200px;
+	border-width: 0;
+}
+
+.goalBtn{
+	padding: 5px;
+	font-size: 2em;
+	line-height: 1;
+	width: 60px;
+	height: 60px;
+}
+
+.live{
+	color: #26a69a !important;
+}
+
 .blue{
 	background-color: #26a69a !important;
 }

@@ -6,11 +6,12 @@
         <section class="match">
 
             <h3>
-                <%- match.team1.name %> vs. <%- match.team2.name %> <% if (match.running) { %> <span class="blue">live..</span> <% } %>
+                <%- match.team1.name %> vs. <%- match.team2.name %> 
             </h3>
             <% if (!match.finished) { %>
             <div class="row">
-                <span class="time" id="clock"></span>
+                <span class="time" id="clock"></span><br>
+                <% if (match.running) { %> <span class="live">live</span> <% } %>
             </div>
             <div class="row">
                 <button class="waves-effect waves-light btn" id="toggle" onClick="toggleGame()" data-running="<%- match.running %>"></button>
@@ -20,28 +21,30 @@
             <div class="row">
 	            <div class="column">
 					         <h2 style="display: inline;" id="team1"><%- match.team1Goals %></h2>
+                   <h4><%- match.team2.name %></h4>
               </div>
       				<div class="column">
       					<h2 style="display: inline" id="team2"><%- match.team2Goals %></h2>
+                <h4><%- match.team1.name %></h4>
       				</div>
       			</div>
             <% if (match.running) { %>
 			     <hr />
             <div class="row">
                 <div class="column">
-                    <h4><%- match.team1.name %></h4>
-                    <button  class="waves-effect waves-light btn" onClick="updateGoal(this)" data-team="1" data-operator="add"> + </button>
-                    <button  class="waves-effect waves-light btn" onClick="updateGoal(this)" data-team="1" data-operator="sub"> - </button>
+                    
+                    <button  class="waves-effect waves-light btn goalBtn" onClick="updateGoal(this)" data-team="1" data-operator="add"> + </button>
+                    <button  class="waves-effect waves-light btn goalBtn" onClick="updateGoal(this)" data-team="1" data-operator="sub"> - </button>
                 </div>
                 <div class="column">
-                    <h4><%- match.team2.name %></h4>
-                    <button  class="waves-effect waves-light btn" onClick="updateGoal(this)" data-team="2" data-operator="add"> + </button>
-                    <button  class="waves-effect waves-light btn" onClick="updateGoal(this)" data-team="2" data-operator="sub"> - </button>
+                    <button  class="waves-effect waves-light btn goalBtn" onClick="updateGoal(this)" data-team="2" data-operator="add"> + </button>
+                    <button  class="waves-effect waves-light btn goalBtn" onClick="updateGoal(this)" data-team="2" data-operator="sub"> - </button>
                 </div>
             </div>
           <% } %>
+        <hr style="margin-top: 50px;">
         <div class="row">
-          <button class="waves-effect waves-light btn" onClick="endGame()">
+          <button class="waves-effect waves-light btn orange" onClick="endGame()">
             <% if (match.finished) { %>
               Reopen Match
             <% } else { %>

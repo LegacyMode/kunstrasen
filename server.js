@@ -12,15 +12,16 @@ const index = require('./routes/index')
 const teams = require('./routes/team')
 const matches = require('./routes/match')
 const schiri = require('./routes/schiri')
+const admin = require('./routes/admin')
 
 const Team = require('./schema/team')
 const Match = require('./schema/match')
 
 const app = express()
 
-const { PORT = 5100 } = process.env
+const { PORT = 8080 } = process.env
 
-const dev = true
+const dev = false
 
 app.use(session({
   secret: process.env.SESSION_TOKEN,
@@ -72,6 +73,7 @@ app.post('/login', (req, res) => {
   }
   else {
     console.log('wuuut')
+    res.redirect('/login')
   }
 })
 
@@ -81,8 +83,9 @@ app.get('/logout', (req, res) => {
 })
 
 app.use(index)
-   .use(schiri)
    .use(auth)
+   .use(schiri)
+   .use(admin)
    .use(matches)
    .use(teams)
    .use((req, res) => res.status(404).send({ url: `${req.originalUrl} not found` }))

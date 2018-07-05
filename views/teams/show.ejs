@@ -1,0 +1,9 @@
+<div class="match-entry">
+	<hr>
+	<h3 class="blue"><a href="/team/<%- team._id %>"><%- team.name %></a></h3>
+	<a href="/team/<%- team._id %>/edit">edit</a>
+	<h4>Matches: </h4>
+  <% team.matches.forEach((match) => { %>
+    <strong> <%- match.roundIdentifier %> </strong>
+  <% }); %>
+</div>

@@ -1,0 +1,21 @@
+<%- include('../partials/header'); %>
+
+<body>
+  <form action="/match" method="POST">
+    <label for="name">Match: </label>
+    <input type="text" id="roundIdentifier" name="roundIdentifier" placeholder="Round Identifier..">
+    <input type="text" id="location" name="location" placeholder="Platz..">
+    <select class="" name="team1" id="team2">
+      <% teams.forEach((team) => { %>
+        <option value="<%- team._id %>"><%- team.name %></option>
+      <% }) %>
+    </select>
+    <select class="" name="team2" id="team2">
+      <% teams.forEach((team) => { %>
+        <option value="<%- team._id %>"><%- team.name %></option>
+      <% }) %>
+    </select>
+    <input type="submit">
+  </form>
+
+<%- include('../partials/footer') %>

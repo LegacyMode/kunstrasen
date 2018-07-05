@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+
+<body style="width: 600px; margin: 0 auto" id="<%- match._id %>">
+
+<h1 id="heading" data-finished="<%- match.finished %>">Match Kontrolle</h1>
+<h2 id="clock"></h2>
+<strong><%- match.team1.name %></strong> vs <strong><%- match.team2.name %></strong>
+<button id="toggle" onClick="toggleGame()" data-running="<%- match.running %>"></button>
+<hr />
+<h2 style="display: inline;" id="team1"><%- match.team1Goals %></h2> -
+<h2 style="display: inline" id="team2"><%- match.team2Goals %></h2>
+<hr />
+<div class="team1">
+  Team1
+  <button onClick="updateGoal(this)" data-team="1" data-operator="add"> + </button>
+  <button onClick="updateGoal(this)" data-team="1" data-operator="sub"> - </button>
+</div>
+<hr />
+<div class="">
+  Team2
+  <button onClick="updateGoal(this)" data-team="2" data-operator="add"> + </button>
+  <button onClick="updateGoal(this)" data-team="2" data-operator="sub"> - </button>
+</div>
+<div class="">
+  <button onClick="endGame()">Finish Game</button>
+</div>
+
+<script src="/assets/js/schiri.js" type="text/javascript"></script>
+<%- include('../partials/footer') %>

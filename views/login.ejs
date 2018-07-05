@@ -1,17 +1,25 @@
 <%- include('partials/header'); %>
 <body id="loginpage">
-<form action="/login" method="post">
-    <div class="field">
-        <label>Username:</label>
-        <input type="text" name="username"/>
-    </div>
-    <div class="field">
-        <label>Password:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-        <input type="submit" value="Log In"/>
-    </div>
-</form>
+    <div class="wrapper shadow">
+        <h1>Kunstrasen</h1>
+        <hr>
+        <section class="content">
+            <h3>
+                Login
+            </h3>
+            <form action="/login" method="post">
+                <div class="field">
+                    <label>Username:</label>
+                    <input type="text" name="username"/>
+                </div>
+                <div class="field">
+                    <label>Password:</label>
+                    <input type="password" name="password"/>
+                </div>
+                <div>
+                    <input class="waves-effect waves-light btn" type="submit" value="Log In"/>
+                </div>
+            </form>
+        </section>
 
 <%- include('partials/footer')%>

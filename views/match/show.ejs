@@ -11,5 +11,6 @@
 	<div class="location">
 		Platz: <%- match.location %>
 	</div>
-	Platz: <%- match.location %> | <button data-id="<%- match._id %>" onClick="copyToClipboard(this)">Copy Referee Link</button>
+	<a class="waves-effect waves-light btn" href="/match/<%- match._id %>/edit">Edit</a>
+	<button class="waves-effect waves-light btn" data-id="<%- match._id %>" onClick="copyToClipboard(this)">Copy Referee Link</button>
 </div>

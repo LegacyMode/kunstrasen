@@ -9,7 +9,7 @@
 	</ul>
 	<hr>
 	<div class="location">
-		Platz: <%- match.location %>
+		Platz: <%- match.location %> | Anpfiff: <%- match.startingTime %>
 	</div>
 	<a class="waves-effect waves-light btn" href="/match/<%- match._id %>/edit">Edit</a>
 	<button class="waves-effect waves-light btn" data-id="<%- match._id %>" onClick="copyToClipboard(this)">Copy Referee Link</button>

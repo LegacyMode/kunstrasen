@@ -52,16 +52,18 @@ input{
 	color: #fff;
 }
 
+select{
+	background-color: #333;
+	color: #fff;
+	margin-bottom: 10px;
+}
+
 div.wrapper{
 	width: 100%;
 	max-width: 375px;
 	margin: 0 auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
-}
-
-.formular{
-	text-align: center;
 }
 
 .status {
@@ -159,6 +161,10 @@ div.matchlist div.match-entry ul li.vs{
 div.matchlist div.match-entry div{
 	padding: 20px;
 	text-align: center;
+}
+
+div.input-field{
+	height:50px;
 }
 
 footer{

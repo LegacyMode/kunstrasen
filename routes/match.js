@@ -44,7 +44,7 @@ app.patch('/match/:id', (req, res) => {
     const time = req.body.startingTime.split(':')
     date.setHours(time[0], time[1], 0)
     console.log(date)
-    match.startingTime = date
+    match.startingTime = date;
     match.save((err) => {
       if (err) return res.status(500).send('Error Code 3')
       res.redirect('/match')

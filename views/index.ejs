@@ -1,12 +1,16 @@
 <%- include('partials/header'); %>
+<body>
+    <div class="wrapper shadow">
         <h1>Kunstrasen 2018</h1>
         <hr>
-        <section class="content">
+        <section class="match">
         	 <h3>
                 Matches
             </h3>
-          <% matches.forEach((match) => { %>
-            <%- include('match/showpublic', {match: match}); %>
-          <% }); %>
+            <div class="matchlist">
+              <% matches.forEach((match) => { %>
+                <%- include('match/showpublic', {match: match}); %>
+              <% }); %>
+            </div>
         </section>
 <%- include('partials/footer') %>

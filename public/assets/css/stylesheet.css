@@ -48,12 +48,20 @@ transition: all 500ms cubic-bezier(0.000, 0.575, 0.265, 1.000);
 	opacity: 0.7;
 }
 
+input{
+	color: #fff;
+}
+
 div.wrapper{
 	width: 100%;
 	max-width: 375px;
 	margin: 0 auto;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.formular{
+	text-align: center;
 }
 
 .status {
@@ -112,6 +120,7 @@ div.matchlist{
 }
 
 div.matchlist div.match-entry{
+	min-height: 210px;
 	margin-top:10px;
 	padding:0px 20px 0px 20px;
 }
@@ -208,8 +217,8 @@ footer{
 		width: 50%;
 	}
 
-	div.matchlist div.match-entry:nth-child(odd){
-		border-right: 4px solid #fff;
+	div.matchlist div.match-entry:nth-child(even){
+		border-left: 4px solid #fff;
 	}
 }
 }

@@ -5,7 +5,7 @@ const Team = require('./../schema/team')
 const Match = require('./../schema/match')
 
 app.get('/match', (req, res) => {
-  Match.find({}).populate(['team1', 'team2']).exec((err, matches) => {
+  Match.find({}).populate(['team1', 'team2']).sort({finished: '1',running: '-1', startingTime: '1'}).exec((err, matches) => {
     if (err) return res.status(500).send('There was a problem finding the teams')
     return res.render('match/index', { matches: matches })
   })

@@ -19,7 +19,7 @@ const Match = require('./schema/match')
 
 const app = express()
 
-const { PORT = 8081 } = process.env
+const { PORT = 8080 } = process.env
 
 const dev = false
 

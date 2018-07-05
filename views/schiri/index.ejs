@@ -4,26 +4,29 @@
         <h1 id="heading" data-finished="<%- match.finished %>">Match Kontrolle</h1>
         <hr>
         <section class="match">
+
             <h3>
-                <%- match.team1.name %> vs. <%- match.team2.name %>
+                <%- match.team1.name %> vs. <%- match.team2.name %> <% if (match.running) { %> <span class="blue">live..</span> <% } %>
             </h3>
+            <% if (!match.finished) { %>
             <div class="row">
                 <span class="time" id="clock"></span>
             </div>
             <div class="row">
                 <button class="waves-effect waves-light btn" id="toggle" onClick="toggleGame()" data-running="<%- match.running %>"></button>
-                <button class="waves-effect waves-light btn" onClick="endGame()">Finish Game</button>
             </div>
             <hr />
+            <% } %>
             <div class="row">
 	            <div class="column">
-					<h2 style="display: inline;" id="team1"><%- match.team1Goals %></h2>
-				</div>
-				<div class="column">
-					<h2 style="display: inline" id="team2"><%- match.team2Goals %></h2>
-				</div>
-			</div>
-			<hr />
+					         <h2 style="display: inline;" id="team1"><%- match.team1Goals %></h2>
+              </div>
+      				<div class="column">
+      					<h2 style="display: inline" id="team2"><%- match.team2Goals %></h2>
+      				</div>
+      			</div>
+            <% if (match.running) { %>
+			     <hr />
             <div class="row">
                 <div class="column">
                     <h4><%- match.team1.name %></h4>
@@ -36,7 +39,18 @@
                     <button  class="waves-effect waves-light btn" onClick="updateGoal(this)" data-team="2" data-operator="sub"> - </button>
                 </div>
             </div>
+          <% } %>
+        <div class="row">
+          <button class="waves-effect waves-light btn" onClick="endGame()">
+            <% if (match.finished) { %>
+              Reopen Match
+            <% } else { %>
+              Finish Match
+            <% } %>
+          </button>
+        </div>
         </section>
+
 
 
 <script src="/assets/js/schiri.js" type="text/javascript"></script>

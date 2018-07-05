@@ -48,9 +48,7 @@ function endGame() {
   })
   .then(response => response.json())
   .then((match) => {
-    console.log(match)
-    heading.dataset.finished = match.finished
-    setText()
+    location.reload()
   })
   .catch((err) => console.log(err))
 }
@@ -72,7 +70,7 @@ function toggleGame() {
   .then((match) => {
     console.log(match)
     toggle.dataset.running = match.running
-    toggleText()
+    location.reload();
   })
   .catch((err) => console.log(err))
 }

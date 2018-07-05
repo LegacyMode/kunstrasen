@@ -59,7 +59,7 @@ function auth(req, res, next) {
 
 app.get('/login', (req, res) => {
   let schiri = false;
-  if (req.session.redirectTo.indexOf('schiri/') != -1) {
+  if (req.session.redirectTo && req.session.redirectTo.indexOf('schiri/') != -1) {
     schiri = true;
   }
   res.render('login', {schiri: schiri})

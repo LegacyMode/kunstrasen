@@ -1,6 +1,11 @@
 <%- include('../partials/header'); %>
 
 <body>
+  <div class="wrapper shadow">
+  <h1>Match</h1>
+        <hr>
+    <section class="content">
+       <h3>Edit</h3>
   <form method="POST" action="/match/<%- match._id %>" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="_method" value="PATCH">
     <label for="name">Match: </label>
@@ -30,5 +35,6 @@
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="Delete">
   </form>
+</section>
   
 <%- include('../partials/footer') %>

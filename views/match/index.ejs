@@ -1,15 +1,18 @@
 <%- include('../partials/header') %>
-
-  <h1>Matches</h1>
-  <hr>
-  <section class="match">
-  <h3 class="link">
-  		<a href="/match/create">Add</a>
-  </h3>
-  <div class="matchlist">
-  <% matches.forEach((match) => { %>
-    <%- include('show', {match: match}); %>
-  <% }); %>
+<body>
+    <div class="wrapper shadow">
+      <h1>Matches</h1>
+      <hr>
+      <section class="match">
+        <h3 class="link">
+  		    <a href="/match/create">Add</a>
+        </h3>
+        <div class="matchlist">
+            <% matches.forEach((match) => { %>
+              <%- include('show', {match: match}); %>
+            <% }); %>
+        </div>
+      </section>
 
 <script src="/assets/js/copytoclipboard.js"></script>
 

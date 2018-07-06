@@ -72,7 +72,12 @@ app.post('/login', (req, res) => {
   }
   else if (users[req.body.username] && users[req.body.username] === req.body.password ) {
     console.log('login granted')
-    const redirectTo = req.session.redirectTo ? req.session.redirectTo : '/admin'
+    let redirectTo
+    if (req.body.username == 'schiri') {
+      redirectTo = req.session.redirectTo ? req.session.redirectTo : '/'
+    } else {
+      redirectTo = req.session.redirectTo ? req.session.redirectTo : '/admin'
+    }
     delete req.session.redirectTo
     req.session.user = req.body.username
     req.session.admin = true

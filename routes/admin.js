@@ -5,6 +5,7 @@ const express = require('express')
 const app = express()
 
 app.get('/admin', (req, res) => {
+  if (req.session.user == 'schiri') { return res.redirect('/') }
   return res.render('admin')
 })
 

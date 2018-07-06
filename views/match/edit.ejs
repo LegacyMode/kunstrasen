@@ -9,9 +9,9 @@
   <form method="POST" action="/match/<%- match._id %>" enctype="application/x-www-form-urlencoded">
     <input type="hidden" name="_method" value="PATCH">
     <label for="name">Match: </label>
-    <input type="text" id="roundIdentifier" name="roundIdentifier" value="<%- match.roundIdentifier %>">
-    <input type="text" id="location" name="location" value="<%- match.location %>">
-    <select class="browser-default" name="team1" id="team2">
+    <input type="text" id="roundIdentifier" name="roundIdentifier" value="<%- match.roundIdentifier %>" required>
+    <input type="text" id="location" name="location" value="<%- match.location %>" required>
+    <select class="browser-default" name="team1" id="team2" required>
       <% teams.forEach((team) => { %>
         <option value="<%- team._id %>"
         <% if (String(team._id) == String(match.team1._id)) {%>
@@ -20,7 +20,7 @@
         ><%- team.name %></option>
       <% }) %>
     </select>
-    <select class="browser-default" name="team2" id="team2">
+    <select class="browser-default" name="team2" id="team2" required>
       <% teams.forEach((team) => { %>
         <option value="<%- team._id %>"
         <% if (String(team._id) == String(match.team2._id)) {%>
@@ -29,7 +29,7 @@
         ><%- team.name %></option>
       <% }) %>
     </select>
-    <input type="text" id="timepicker" name="startingTime" placeholder="Pick a Timeslot">
+    <input type="text" id="timepicker" name="startingTime" placeholder="Pick a Timeslot" required>
     <input class="waves-effect waves-light btn" type="submit">
 
   </form>

@@ -9,23 +9,23 @@
        <h3>create</h3>
     <form action="/match" method="POST">
       <label for="name">Match: </label>
-      <input type="text" id="roundIdentifier" name="roundIdentifier" placeholder="Round Identifier..">
-      <input type="text" id="location" name="location" placeholder="Platz..">
+      <input type="text" id="roundIdentifier" name="roundIdentifier" placeholder="Round Identifier.." required>
+      <input type="text" id="location" name="location" placeholder="Platz.." required>
       <div class="input-field">
-      <select class="browser-default" name="team1" id="team2">
+      <select class="browser-default" name="team1" id="team2" required>
         <option value="" disabled selected>Choose your option</option>
         <% teams.forEach((team) => { %>
           <option value="<%- team._id %>"><%- team.name %></option>
         <% }) %>
       </select>
       </div>
-      <select class="browser-default" name="team2" id="team2">
+      <select class="browser-default" name="team2" id="team2" required>
         <% teams.forEach((team) => { %>
           <option value="<%- team._id %>"><%- team.name %></option>
         <% }) %>
       </select>
       <div class="row">
-        <input type="text" id="timepicker" name="startingTime">
+        <input type="text" id="timepicker" name="startingTime" required>
         <input class="waves-effect waves-light btn" type="submit">
       </div>
     </form>

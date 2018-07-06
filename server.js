@@ -47,7 +47,7 @@ app.use(methodOverride(function (req, res) {
 
 let users = {}
 users[process.env.USER_NAME] = process.env.USER_PW
-users[schiri] = process.env.SCHIRI_PW
+users['schiri'] = process.env.SCHIRI_PW
 
 function auth(req, res, next) {
    if (((req.session) && users[req.session.user] && req.session.admin) || dev)
@@ -80,6 +80,8 @@ app.post('/login', (req, res) => {
     res.redirect(redirectTo)
   }
   else {
+    console.log(users[req.body.username])
+    console.log(req.body.password)
     console.log('wuuut')
     res.redirect('/login')
   }

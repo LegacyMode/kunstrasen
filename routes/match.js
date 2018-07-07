@@ -55,7 +55,7 @@ app.patch('/match/:id', (req, res) => {
 app.delete('/match/:id', (req, res) => {
   Match.remove({ _id: req.params.id }, (err) => {
     if (err) return res.status(500).send('Error Code 4')
-    res.redirect('/matches')
+    res.redirect('/match')
   })
 })
 

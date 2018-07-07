@@ -1,5 +1,6 @@
 <div class="match-entry">
 	<hr>
+	<% const anpfiff = new Date(Date.parse(match.startingTime)) %>
 	<h3 class="blue link"><a href="/match/<%- match._id %>/edit"><%- match.roundIdentifier %> | <%- match.team1Goals %>:<%- match.team2Goals %></a></h3>
 	<span data-finished="<%- match.finished %>" data-running="<%- match.running %>" class="status"></span>
 		<ul class="match-name">
@@ -9,7 +10,7 @@
 	</ul>
 	<hr>
 	<div class="location">
-		Platz: <%- match.location %> | Anpfiff: <%- match.startingTime %>
+		Platz: <%- match.location %> | Anpfiff <%- anpfiff.getHours() %>:<%- anpfiff.getMinutes() %>
 	</div>
 	<a class="waves-effect waves-light btn" href="/match/<%- match._id %>/edit">Edit</a>
 	<button class="waves-effect waves-light btn" data-id="<%- match._id %>" onClick="copyToClipboard(this)">Copy Referee Link</button>

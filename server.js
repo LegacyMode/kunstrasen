@@ -19,9 +19,9 @@ const Match = require('./schema/match')
 
 const app = express()
 
-const { PORT = 8080 } = process.env
+const { PORT = 5050 } = process.env
 
-const dev = false
+const dev = true
 
 app.use(session({
   secret: process.env.SESSION_TOKEN,

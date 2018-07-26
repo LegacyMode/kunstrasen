@@ -4,10 +4,11 @@
         <h1 id="heading" data-finished="<%- match.finished %>">Match Kontrolle</h1>
         <hr>
         <section class="match">
-
+	    <% const anpfiff = new Date(Date.parse(match.startingTime)) %>
             <h3>
                 <%- match.team1.name %> vs. <%- match.team2.name %> 
             </h3>
+	    Anpfiff: <%- anpfiff.getHours() %>:<%- ('0'+anpfiff.getMinutes()).slice(-2) %>
             <% if (!match.finished) { %>
             <div class="row">
                 <span class="time" id="clock"></span><br>

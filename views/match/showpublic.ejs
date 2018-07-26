@@ -1,4 +1,5 @@
 <div class="match-entry">
+	<% const anpfiff = new Date(Date.parse(match.startingTime)) %>
 	<hr>
 	<h3 class="blue"><%- match.roundIdentifier %> | <%- match.team1Goals %>:<%- match.team2Goals %> </h3>
 	<ul class="match-name">
@@ -9,7 +10,7 @@
 	</ul>
 	<hr>
 	<div class="location">
-		Platz: <%- match.location %>
+		Platz: <%- match.location %> | Anpfiff: <%- anpfiff.getHours() %>:<%- ('0'+anpfiff.getMinutes()).slice(-2) %>
 	</div>
 	<span data-finished="<%- match.finished %>" data-running="<%- match.running %>" class="status"></span>
 </div>

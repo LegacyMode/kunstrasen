@@ -2,7 +2,7 @@ console.log(window.location.hostname)
 
 const copyToClipboard = idElem => {
   const el = document.createElement('textarea');  // Create a <textarea> element
-  el.value = `${window.location.hostname}:8080/schiri/${idElem.dataset.id}/`;                                 // Set its value to the string that you want copied
+  el.value = `https://${window.location.hostname}/schiri/${idElem.dataset.id}/`;                                 // Set its value to the string that you want copied
   console.log(el.value)
   el.setAttribute('readonly', '');                // Make it readonly to be tamper-proof
   el.style.position = 'absolute';
